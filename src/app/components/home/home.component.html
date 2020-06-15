@@ -1,0 +1,27 @@
+<mat-card class="createSession">
+    <mat-card-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" [formControl]="username" placeholder="Ishkabibble">
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions align="center">
+        <button mat-raised-button color="primary" (click)="createSession(username.value)">Create Session</button>  
+    </mat-card-actions>
+</mat-card>
+
+<mat-card class="joinSession">
+    <mat-card-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" [formControl]="username" placeholder="Ishkabibble">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>SessionId</mat-label>
+            <input matInput type="text" [formControl]="sessionId" placeholder="awe9f098awf">
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions align="center">
+        <button mat-raised-button color="primary" (click)="joinSession(sessionId.value, username.value)">Join Session</button>  
+    </mat-card-actions>
+</mat-card>
