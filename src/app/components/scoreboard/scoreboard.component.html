@@ -1,29 +1,3 @@
-<mat-card class="teamOne" style="width: 10%">
-    <mat-card-title>Team One</mat-card-title>
-    <mat-card-content style="width: 100%">
-        <mat-chip-list class="mat-chip-list-stacked" style="width: 100%">
-            <div *ngIf="teamOne!==undefined" style="width: 100%">
-                <mat-chip *ngFor="let player of teamOne" color="primary" style="width: 100%">
-                    {{player.username}}
-                </mat-chip>
-            </div>
-        </mat-chip-list>
-    </mat-card-content>
-</mat-card>
-
-<mat-card class="teamTwo" style="width: 10%">
-    <mat-card-title>Team Two</mat-card-title>
-    <mat-card-content style="width: 100%">
-        <mat-chip-list class="mat-chip-list-stacked" style="width: 100%">
-            <div *ngIf="teamTwo!==undefined" style="width: 100%">
-                <mat-chip *ngFor="let player of teamTwo" color="primary" style="width: 100%">
-                    {{player.username}}
-                </mat-chip>
-            </div>
-        </mat-chip-list>
-    </mat-card-content>
-</mat-card>
-
 <mat-card class="teamOneWords">
     <mat-card-title align="center">
         <h1>Team One Times</h1>
