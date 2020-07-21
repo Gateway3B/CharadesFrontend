@@ -13,6 +13,8 @@ export class ScoreboardComponent implements OnInit {
   session: Session;
   teamOne: User[];
   teamTwo: User[];
+  scoreOne: number;
+  scoreTwo: number;
 
   constructor(private client: ClientService, private router: Router) { }
 
@@ -37,6 +39,8 @@ export class ScoreboardComponent implements OnInit {
     this.session.wordTimeTwo.forEach(word => {
       two += word.time;
     })
+    this.scoreOne = two;
+    this.scoreTwo = one;
     if(one > two) {
       return "Team One"
     } else {

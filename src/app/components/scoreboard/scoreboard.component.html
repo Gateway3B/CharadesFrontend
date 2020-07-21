@@ -5,8 +5,9 @@
     <mat-card-content align="center">
         <mat-chip-list class="mat-chip-list-stacked" style="width: 100%">
             <div *ngIf="teamTwo!==undefined&&teamOne!==undefined" style="width: 100%">
+                <mat-chip color="primary" style="width: 100%">Username : Word : Seconds</mat-chip>
                 <mat-chip *ngFor="let word of session.wordTimeTwo" color="primary" style="width: 100%">
-                    {{word.user.username}} guessed {{word.word}} in {{word.time}} seconds.
+                    {{word.user.username}} : {{word.word}} : {{word.time}}
                 </mat-chip>
             </div>
         </mat-chip-list>
@@ -20,8 +21,9 @@
     <mat-card-content align="center">
         <mat-chip-list class="mat-chip-list-stacked" style="width: 100%">
             <div *ngIf="teamTwo!==undefined&&teamOne!==undefined" style="width: 100%">
+                <mat-chip color="primary" style="width: 100%">Username : Word : Seconds</mat-chip>
                 <mat-chip *ngFor="let word of session.wordTimeOne" color="primary" style="width: 100%">
-                    {{word.user.username}} guessed {{word.word}} in {{word.time}} seconds.
+                    {{word.user.username}} : {{word.word}} : {{word.time}}
                 </mat-chip>
             </div>
         </mat-chip-list>
@@ -31,5 +33,7 @@
 <mat-card class="center">
     <mat-card-title align="center">
         <h1>{{getWinner()}} Wins!</h1>
+        <h2>Team One's Score: {{scoreOne}}</h2>
+        <h2>Team Two's Score: {{scoreTwo}}</h2>
     </mat-card-title>
 </mat-card>

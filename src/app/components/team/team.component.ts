@@ -15,19 +15,23 @@ export class TeamComponent implements OnInit {
   session: Session;
   wordsOne: string[];
   wordsTwo: string[];
-  readyString: string;
   teamOne: User[];
   teamTwo: User[];
+  readyCheck: boolean;
 
   constructor(private client: ClientService, private router: Router) { }
 
   ngOnInit(): void {
-    this.readyString = "Ready";
     this.updateSession();
   }
 
   updateSession() {
     this.client.getSession(this.client.sessionId).subscribe((session) => {
+      if(this.client.team) {
+        this.readyCheck = !session.readyOne;
+      } else {
+        this.readyCheck = !session.readyTwo;
+      }
       this.session = session;
       this.wordsOne = Object.entries(session.teamOneWords).map(([key, value]) => { return value });
       this.wordsTwo = Object.entries(session.teamTwoWords).map(([key, value]) => { return value });
@@ -55,7 +59,6 @@ export class TeamComponent implements OnInit {
 
   ready() {
     this.client.ready().subscribe(() => {});
-    this.readyString = "Waiting";
   }
 
 }

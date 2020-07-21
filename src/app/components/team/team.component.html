@@ -47,9 +47,9 @@
     </mat-card-content>
 </mat-card>
 
-<mat-card class="center" style="top: 20%; left: 75%">
+<mat-card class="center" style="top: 20%; left: 85%; width: 20%">
     <mat-card-content>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" style="width: 100%">
             <mat-label>Word</mat-label>
             <input matInput type="text" [formControl]="word" placeholder="Pikachu">
         </mat-form-field>
@@ -59,8 +59,13 @@
     </mat-card-actions>
 </mat-card>
 
-<mat-card class="center" style="top: 50%; left: 75%">
+<mat-card class="center" style="top: 40%; left: 85%">
     <mat-card-actions align="center">
-        <button mat-raised-button color="primary" (click)="ready()">{{readyString}}</button>  
+        <div *ngIf="readyCheck; else elseBlock">
+            <button mat-raised-button color="primary" (click)="ready()">Ready</button>
+        </div>
+        <ng-template #elseBlock>
+            <button mat-raised-button color="primary">Waiting</button>
+        </ng-template>
     </mat-card-actions>
 </mat-card>

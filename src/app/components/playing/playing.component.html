@@ -32,7 +32,7 @@
         <h1 align="center">{{session.currentWord}}</h1>
         <h1 align="center">Time: {{time}}</h1>
     </mat-card-content>
-    <mat-card-actions align="center">
+    <mat-card-actions *ngIf="active" align="center">
         <button *ngIf="!started" mat-raised-button color="primary" (click)="start()" align="center">Start Timer</button>
         <button *ngIf="started" mat-raised-button color="primary" (click)="nextWord()" align="center">Stop</button>
     </mat-card-actions>

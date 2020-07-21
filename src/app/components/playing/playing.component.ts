@@ -16,6 +16,7 @@ export class PlayingComponent implements OnInit {
   time: number;
   interval;
   started: boolean;
+  active: boolean;
 
   constructor(private client: ClientService, private router: Router) { }
 
@@ -23,6 +24,7 @@ export class PlayingComponent implements OnInit {
     this.updateSession();
     this.time = 0;
     this.started = false;
+    this.active = true;
   }
 
   updateSession() {
@@ -49,6 +51,9 @@ export class PlayingComponent implements OnInit {
 
   nextWord() {
     this.client.nextWord(this.time).subscribe(() => {});
+    this.interval.dispose();
+    this.active = false;
+    this.updateSession();
   }
 
 }
