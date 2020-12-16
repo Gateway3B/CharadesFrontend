@@ -14,6 +14,8 @@ export class PlayingComponent implements OnInit {
   teamOne: User[];
   teamTwo: User[];
   time: number;
+  date: Date
+  timeStart: number;
   interval;
   started: boolean;
   active: boolean;
@@ -25,6 +27,7 @@ export class PlayingComponent implements OnInit {
     this.time = 0;
     this.started = false;
     this.active = true;
+    this.date = new Date();
   }
 
   updateSession() {
@@ -37,23 +40,27 @@ export class PlayingComponent implements OnInit {
       } else if(this.session.scoreboard) {
         this.router.navigateByUrl("/scoreboard")
       } else {
-        setTimeout(() => { this.updateSession(); }, 100);
+        setTimeout(() => { this.updateSession(); }, 3000);
       }
     })
   }
 
   start() {
+    if(!this.started) {
+      this.timeStart = this.date.getTime();
+    }
     this.started = true;
     this.interval = setInterval(() => {
-      this.time++;
+      this.time = (this.timeStart - this.date.getTime())/1000;
     }, 1000);
   }
 
   nextWord() {
-    this.client.nextWord(this.time).subscribe(() => {});
-    this.interval.dispose();
     this.active = false;
-    this.updateSession();
+    this.interval.dispose();
+    this.time = (this.timeStart - this.date.getTime())/1000;
+    this.client.nextWord(this.time).subscribe(() => {});
+    //this.updateSession();
   }
 
 }
