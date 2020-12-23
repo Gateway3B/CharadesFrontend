@@ -30,7 +30,7 @@ export class ViewingComponent implements OnInit {
       } else if(this.session.scoreboard) {
         this.router.navigateByUrl("/scoreboard")
       } else {
-        setTimeout(() => { this.updateSession(); }, 100);
+        setTimeout(() => { this.updateSession(); }, 3000);
       }
     })
   }

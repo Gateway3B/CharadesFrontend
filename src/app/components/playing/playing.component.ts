@@ -56,8 +56,9 @@ export class PlayingComponent implements OnInit {
     this.active = false;
     clearInterval(this.interval);
     this.time = Math.floor((new Date().getTime() - this.timeStart)/1000);
-    this.client.nextWord(this.time).subscribe(() => {});
-    //this.updateSession();
+    this.client.nextWord(this.time).subscribe(() => {
+      this.router.navigateByUrl("/viewing");
+    });
   }
 
 }

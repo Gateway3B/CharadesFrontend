@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   joinSession(sessionId, username) {
-    this.client.joinSession(sessionId, username).subscribe((session) => {
+    this.client.joinSession(sessionId.value.toLowerCase(), username).subscribe((session) => {
       this.client.sessionId = session.sessionId;
       this.client.username = username;
       this.router.navigateByUrl("/teams");
